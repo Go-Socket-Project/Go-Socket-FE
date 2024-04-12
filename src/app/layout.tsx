@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
-
-const inter = Inter({ subsets: ["latin"] });
+import RecoilWrapper from "@/utils/RecoilWrapper";
 
 export const metadata: Metadata = {
   title: "Socket",
@@ -19,7 +17,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
-      <body>{children}</body>
+      <body>
+        <RecoilWrapper>{children}</RecoilWrapper>
+      </body>
     </html>
   );
 }
