@@ -2,7 +2,6 @@
 
 import * as S from "../../AuthFormStyle/style";
 import Image from "next/image";
-import Link from "next/link";
 import AuthInput from "../../AuthInput";
 import { SubmitErrorHandler, SubmitHandler, useForm } from "react-hook-form";
 import { RegexsData } from "@/asset/RegexsData";
@@ -11,11 +10,14 @@ import { isNotNull } from "@/utils/isNotNull";
 import AuthButton from "../../AuthButton";
 import { useRecoilState, useSetRecoilState } from "recoil";
 import { signUpObject, signUpStep } from "@/recoilAtoms";
+import { signup } from "@/api/member";
+import { useRouter } from "next/navigation";
 
 const SecondStep = () => {
   const { register, watch, handleSubmit } = useForm<SignupForm>();
   const setSignUpStep = useSetRecoilState(signUpStep);
-  const [SignUpObject, setSignUpObject] = useRecoilState(signUpObject);
+  const [SignUpObject] = useRecoilState(signUpObject);
+  const router = useRouter();
 
   const onInvalid: SubmitErrorHandler<SignupForm> = (state) =>
     alert(state.password?.message || state.passwordCheck?.message);
@@ -24,6 +26,16 @@ const SecondStep = () => {
     if (!SignUpObject.name || !SignUpObject.email || !state.password) return;
     if (state.password !== state.passwordCheck)
       return alert("비밀번호확인이 비밀번호와 맞지 않습니다.");
+    const notError = await signup(
+      SignUpObject.name,
+      SignUpObject.email,
+      state.password,
+      state.passwordCheck
+    );
+    if (notError) {
+      setSignUpStep("first");
+      router.push("/sign-in");
+    }
   };
 
   return (
