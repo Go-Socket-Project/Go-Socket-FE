@@ -29,8 +29,7 @@ const SecondStep = () => {
     const notError = await signup(
       SignUpObject.name,
       SignUpObject.email,
-      state.password,
-      state.passwordCheck
+      state.password
     );
     if (notError) {
       setSignUpStep("first");

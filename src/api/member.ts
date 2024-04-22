@@ -3,33 +3,30 @@ import { UserController } from "@/utils/requestUrls";
 
 export const signin = async (email: string, password: string) => {
   try {
-    const { data } = await apiClient.post(UserController.signin, {
-      custom_id: email,
+    await apiClient.post(UserController.signin, {
+      email: email,
       password: password,
     });
 
     return alert("로그인이 되었습니다.");
   } catch (e: any) {
-    console.log(e);
+    if (e.message === "Request failed with status code 401") {
+      alert(e.response.data.message);
+    }
 
     return false;
   }
 };
 
-export const signup = async (
-  name: string,
-  email: string,
-  password: string,
-  password_confirm: string
-) => {
+export const signup = async (name: string, email: string, password: string) => {
   try {
     await apiClient.post(UserController.signup, {
       name: name,
-      custom_id: email,
+      email: email,
       password: password,
-      password_confirm: password_confirm,
     });
-    return alert("회원가입이 되었습니다");
+    alert("회원가입이 되었습니다");
+    return true;
   } catch (e: any) {
     if (e.message === "Request failed with status code 403") {
       alert("이미 가입된 유저에요.");

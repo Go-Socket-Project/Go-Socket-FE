@@ -9,9 +9,12 @@ import { RegexsData } from "@/asset/RegexsData";
 import { SigninForm } from "@/types";
 import { isNotNull } from "@/utils/isNotNull";
 import AuthButton from "../AuthButton";
+import { signin } from "@/api/member";
+import { useRouter } from "next/navigation";
 
 const Signin = () => {
   const { register, watch, handleSubmit } = useForm<SigninForm>();
+  const router = useRouter();
 
   const onInvalid: SubmitErrorHandler<SigninForm> = (state) => {
     if (state.email?.message) return alert(state.email?.message);
@@ -20,6 +23,9 @@ const Signin = () => {
 
   const onValid: SubmitHandler<SigninForm> = async (state) => {
     if (!state.email || !state.password) return;
+    if (await signin(state.email, state.password)) {
+      router.push("/");
+    }
   };
 
   return (
