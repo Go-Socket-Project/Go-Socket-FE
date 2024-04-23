@@ -1,2 +1,9 @@
 export { default as EyeIcon } from "./EyeIcon.svg";
 export { default as EyeCloseIcon } from "./EyeCloseIcon.svg";
+export { default as RocketIcon } from "./rocketlogo.svg";
+export { default as PulsIcon } from "./PlusIcon.svg";
+export { default as HomeIcon } from "./HomeIcon.svg";
+export { default as MentionIcon } from "./MentionIcon.svg";
+export { default as SearchIcon } from "./SearchIcon.svg";
+export { default as ArrowIcon } from "./ArrowIcon.svg";
+export { default as SendIcon } from "./SendIcon.svg";
