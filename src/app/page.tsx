@@ -1,3 +1,5 @@
-export default function Home() {
-  return <>socket</>;
+import Home from "@/components/Home";
+
+export default function HomePage() {
+  return <Home />;
 }
