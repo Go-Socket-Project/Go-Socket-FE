@@ -1,8 +1,8 @@
 "use client";
 
 import * as S from "./style";
-import SearchBox from "@/components/Home/SearchBox";
-import StateBox from "@/components/Home/StateBoard";
+import SearchBox from "@/components/Home/atoms/SearchBox";
+import StateBox from "@/components/Home/atoms/StateBoard";
 
 const Header = () => {
   return (

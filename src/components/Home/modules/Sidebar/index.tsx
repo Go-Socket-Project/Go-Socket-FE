@@ -2,9 +2,9 @@
 
 import * as S from "./style";
 import { RocketIcon } from "@/asset/svg";
-import NewChatBtn from "@/components/Home/NewChatBtn";
-import AlarmList from "@/components/Home/AlarmList";
-import ChatList from "@/components/Home/ChatList";
+import NewChatBtn from "@/components/Home/atoms/NewChatBtn";
+import AlarmList from "@/components/Home/atoms/AlarmList";
+import ChatList from "@/components/Home/atoms/ChatList";
 
 const Sidebar = () => {
   return (

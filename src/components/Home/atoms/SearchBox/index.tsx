@@ -1,7 +1,7 @@
 "use client";
 
-import * as S from "./style";
 import { SearchIcon } from "@/asset/svg";
+import * as S from "./style";
 
 const SearchBox = () => {
   return (

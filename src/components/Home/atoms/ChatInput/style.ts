@@ -47,6 +47,7 @@ export const ChatInputWrapper = styled.div`
       font-size: 17px;
       font-weight: 500;
     }
+    transition: all 0.3s ease-in-out;
   }
 
   svg {

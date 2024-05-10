@@ -1,16 +1,17 @@
 "use client";
 
 import * as S from "./style";
-import ChatInput from "@/components/Home/ChatInput";
 
-const ChatBoard = () => {
+import ChatInput from "@/components/Home/atoms/ChatInput";
+
+const DMBoard = () => {
   const inbox = ["hi", "hello", "nice"];
 
   return (
-    <S.ChatBoardWrapper>
-      <S.Header>
+    <S.DMBoardWrapper>
+      <S.HeaderWrapper>
         <span>Name</span>
-      </S.Header>
+      </S.HeaderWrapper>
 
       <S.ChatBoard>
         <div>
@@ -27,8 +28,8 @@ const ChatBoard = () => {
       </S.ChatBoard>
 
       <ChatInput />
-    </S.ChatBoardWrapper>
+    </S.DMBoardWrapper>
   );
 };
 
-export default ChatBoard;
+export default DMBoard;
