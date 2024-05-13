@@ -9,12 +9,12 @@ export const SidebarWrapper = styled.div`
   gap: 32px;
 `;
 
-export const Header = styled.div`
+export const LogoBox = styled.div`
   display: flex;
   gap: 14px;
+  color: #15114d;
 
-  p {
-    font-size: 32px;
+  h1 {
     font-weight: 900;
     line-height: 40px;
   }

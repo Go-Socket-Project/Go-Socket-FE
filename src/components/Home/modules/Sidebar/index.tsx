@@ -5,14 +5,17 @@ import { RocketIcon } from "@/asset/svg";
 import NewChatBtn from "@/components/Home/atoms/NewChatBtn";
 import AlarmList from "@/components/Home/atoms/AlarmList";
 import ChatList from "@/components/Home/atoms/ChatList";
+import Link from "next/link";
 
 const Sidebar = () => {
   return (
     <S.SidebarWrapper>
-      <S.Header>
-        <RocketIcon />
-        <p>Chat</p>
-      </S.Header>
+      <Link href="/">
+        <S.LogoBox>
+          <RocketIcon />
+          <h1>Chat</h1>
+        </S.LogoBox>
+      </Link>
       <NewChatBtn />
       <AlarmList />
       <ChatList />
