@@ -1,4 +1,4 @@
-import { SignupForm } from "@/types";
+import { SignupForm } from "@/types/Auth";
 import { atom } from "recoil";
 
 export const signUpStep = atom<string>({

@@ -6,7 +6,7 @@ import Link from "next/link";
 import AuthInput from "../AuthInput";
 import { SubmitErrorHandler, SubmitHandler, useForm } from "react-hook-form";
 import { RegexsData } from "@/asset/RegexsData";
-import { SigninForm } from "@/types";
+import { SigninForm } from "@/types/Auth";
 import { isNotNull } from "@/utils/isNotNull";
 import AuthButton from "../AuthButton";
 import { signin } from "@/api/member";
