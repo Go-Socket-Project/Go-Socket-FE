@@ -1,14 +1,16 @@
-import { apiClient } from "@/utils/apiClient";
-import { UserController } from "@/utils/requestUrls";
+import { setToken } from "@/utils/libs/setToken";
+import { apiClient } from "@/utils/libs/apiClient";
+import { UserController } from "@/utils/libs/requestUrls";
 
 export const signin = async (email: string, password: string) => {
   try {
-    await apiClient.post(UserController.signin, {
+    const { data } = await apiClient.post(UserController.signin, {
       email: email,
       password: password,
     });
-
-    return alert("로그인이 되었습니다.");
+    setToken(data.access, data.refresh);
+    alert("로그인이 되었습니다.");
+    return true;
   } catch (e: any) {
     if (e.message === "Request failed with status code 401") {
       alert(e.response.data.message);
@@ -28,8 +30,8 @@ export const signup = async (name: string, email: string, password: string) => {
     alert("회원가입이 되었습니다");
     return true;
   } catch (e: any) {
-    if (e.message === "Request failed with status code 403") {
-      alert("이미 가입된 유저에요.");
+    if (e.message === "Request failed with status code 400") {
+      alert(e.response.data.message);
     }
     return false;
   }
