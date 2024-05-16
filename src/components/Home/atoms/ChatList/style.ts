@@ -18,6 +18,7 @@ export const ChatItem = styled.div`
   }
 
   p {
+    color: #15114d;
     font-size: 16px;
     font-weight: 500;
   }
