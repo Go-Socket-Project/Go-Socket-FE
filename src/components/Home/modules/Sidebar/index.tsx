@@ -4,7 +4,7 @@ import * as S from "./style";
 import { RocketIcon } from "@/asset/svg";
 import NewChatBtn from "@/components/Home/atoms/NewChatBtn";
 import AlarmList from "@/components/Home/atoms/AlarmList";
-import ChatList from "@/components/Home/atoms/ChatList";
+import DMList from "@/components/Home/atoms/DMList";
 import Link from "next/link";
 
 const Sidebar = () => {
@@ -18,7 +18,7 @@ const Sidebar = () => {
       </Link>
       <NewChatBtn />
       <AlarmList />
-      <ChatList />
+      <DMList />
     </S.SidebarWrapper>
   );
 };
