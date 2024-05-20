@@ -6,6 +6,7 @@ import { RegexsData } from "@/asset/RegexsData";
 import { createDMRoom } from "@/api/chat";
 import { useModal } from "@/hooks/useModalStore";
 import { CreateDMForm } from "@/types/Chat";
+import { ModalOverlayWrapper } from "@/components/common/ModalOverlay";
 
 const CreateDMModal = () => {
   const router = useRouter();
@@ -29,30 +30,36 @@ const CreateDMModal = () => {
   };
 
   return (
-    <S.Layer>
-      <S.ModalTitle>
-        <p>상대방 이메일을 입력해주세요</p>
-        <XIcon onClick={onClose} />
-      </S.ModalTitle>
-      <S.ModalField>
-        <input
-          {...register("email", {
-            required: "이메일을 입력해주세요.",
-            pattern: {
-              value: RegexsData.EMAIL,
-              message: "이메일형식에 맞게 입력해주세요.",
-            },
-          })}
-          placeholder={"이메일을 입력해주세요"}
-          type={"text"}
-        />
-      </S.ModalField>
-      <S.Footer>
-        <S.ModalButton onClick={handleSubmit(onValid, onInvalid)}>
-          만들기
-        </S.ModalButton>
-      </S.Footer>
-    </S.Layer>
+    <ModalOverlayWrapper onClick={onClose}>
+      <S.Layer
+        onClick={(e) => {
+          e.stopPropagation();
+        }}
+      >
+        <S.ModalTitle>
+          <p>상대방 이메일을 입력해주세요</p>
+          <XIcon onClick={onClose} />
+        </S.ModalTitle>
+        <S.ModalField>
+          <input
+            {...register("email", {
+              required: "이메일을 입력해주세요.",
+              pattern: {
+                value: RegexsData.EMAIL,
+                message: "이메일형식에 맞게 입력해주세요.",
+              },
+            })}
+            placeholder={"이메일을 입력해주세요"}
+            type={"text"}
+          />
+        </S.ModalField>
+        <S.Footer>
+          <S.ModalButton onClick={handleSubmit(onValid, onInvalid)}>
+            만들기
+          </S.ModalButton>
+        </S.Footer>
+      </S.Layer>
+    </ModalOverlayWrapper>
   );
 };
 
