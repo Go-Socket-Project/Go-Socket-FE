@@ -7,3 +7,4 @@ export { default as MentionIcon } from "./MentionIcon.svg";
 export { default as SearchIcon } from "./SearchIcon.svg";
 export { default as ArrowIcon } from "./ArrowIcon.svg";
 export { default as SendIcon } from "./SendIcon.svg";
+export { default as XIcon } from "./XIcon.svg";

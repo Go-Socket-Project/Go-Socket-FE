@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import RecoilWrapper from "@/utils/RecoilWrapper";
+import { ModalProvider } from "@/providers/modal-provider";
 
 export const metadata: Metadata = {
   title: "Socket",
@@ -18,7 +19,10 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <body>
-        <RecoilWrapper>{children}</RecoilWrapper>
+        <RecoilWrapper>
+          <ModalProvider />
+          {children}
+        </RecoilWrapper>
       </body>
     </html>
   );

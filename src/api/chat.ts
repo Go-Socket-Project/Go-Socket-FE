@@ -14,11 +14,11 @@ export const getDMList = async () => {
 };
 export const createDMRoom = async (email: string) => {
   try {
-    await apiClient.post(ChatController.createDM, {
+    const { data } = await apiClient.post(ChatController.createDM, {
       email: email,
     });
 
-    return true;
+    return data;
   } catch (e: any) {
     console.log(e);
 
