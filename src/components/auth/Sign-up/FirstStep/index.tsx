@@ -6,7 +6,7 @@ import Link from "next/link";
 import AuthInput from "../../AuthInput";
 import { SubmitErrorHandler, SubmitHandler, useForm } from "react-hook-form";
 import { RegexsData } from "@/asset/RegexsData";
-import { SignupForm } from "@/types";
+import { SignupForm } from "@/types/Auth";
 import AuthButton from "../../AuthButton";
 import { useRecoilState, useSetRecoilState } from "recoil";
 import { signUpObject, signUpStep } from "@/recoilAtoms";

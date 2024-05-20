@@ -5,7 +5,7 @@ import Image from "next/image";
 import AuthInput from "../../AuthInput";
 import { SubmitErrorHandler, SubmitHandler, useForm } from "react-hook-form";
 import { RegexsData } from "@/asset/RegexsData";
-import { SignupForm } from "@/types";
+import { SignupForm } from "@/types/Auth";
 import { isNotNull } from "@/utils/isNotNull";
 import AuthButton from "../../AuthButton";
 import { useRecoilState, useSetRecoilState } from "recoil";
